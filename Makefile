@@ -12,7 +12,7 @@ build:
 
 
 .PHONY: build-docker
-build-docker:
+build-docker: build
 	docker build -t ${REPOSITORY} .
 
 .PHONY: run

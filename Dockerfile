@@ -20,9 +20,6 @@ RUN mkdir -p /var/log/amzimg3
 COPY builds/amzimg3 /usr/local/bin/amzimg3
 COPY etc/allow_sources.txt /opt/amzimg3/etc/allow_sources.txt
 
-RUN ln -sf /dev/stdout /var/log/amzimg3/stdout.log
-RUN ln -sf /dev/stderr /var/log/amzimg3/error.log
-
 VOLUME ["/var/data","/var/log/amzimg3","/opt/amzimg3/etc"]
 
 EXPOSE 8085
