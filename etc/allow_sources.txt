@@ -1,0 +1,4 @@
+# 允许访问的源地址,忽略协议
+127.0.0.1:9005
+www.iconfinder.com
+cdn0.iconfinder.com
