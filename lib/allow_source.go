@@ -51,7 +51,6 @@ func NewAllowSourceByFile(f string) *AllowSource {
 		panic(err)
 	}
 	scanner := bufio.NewScanner(file)
-	log.Println("read allow source list: ", f)
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
 		if len(line) == 0 || strings.HasPrefix(line, "#") {
@@ -62,7 +61,6 @@ func NewAllowSourceByFile(f string) *AllowSource {
 			log.Println("parse url err:", err.Error())
 			continue
 		}
-		log.Println("add allow source: " + host)
 		as.Set(host + ":" + port)
 	}
 	return as

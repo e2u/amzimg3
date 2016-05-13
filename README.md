@@ -9,7 +9,7 @@
 ## 部署方式
 
 * 编译 `make build`
-* 创建Docker镜像 `docker build -t <REPOSITORY:TAG> .`
+* 创建 Docker 镜像 `REPOSITORY=<REPOSITORY:TAG> make build-docker`
 
 
 ## 运行方法
@@ -22,7 +22,7 @@ Usage of main:
     	listen address (default "0.0.0.0")
   -allow string
     	allow srouce list file (default "/opt/amzimg3/etc/allow_sources.txt")
-  -dir string
+  -data string
     	cache image storage directory (default "/var/data")
   -port uint
     	listen port (default 8085)
@@ -54,6 +54,7 @@ cdn0.iconfinder.com
 
 * 临时运行: `docker run --rm -p 8085:8085 -v $(PWD)/etc:/opt/amzimg3/etc <REPOSITORY:TAG>`
 * 运行为服务: `docker run -d --name amzimg3 -p 8085:8085 -v $(PWD)/etc/:/opt/amzimg3/etc <REPOSITORY:TAG>`
+
 
 
 ## 请求方法
@@ -97,4 +98,3 @@ Http Header reload: true
 
 * `curl -H "reload: true" http://host/190/http://www.domain.com:port/path/path1/file.jpg`
 * `curl -H "reload: true" http://host/190/www.domain.com/path/path1/file.jpg`
-
