@@ -11,8 +11,12 @@ build:
 	go build -o ${BUILD_DIR}/amzimg3
 
 
+.PHONY: build-linux
+build-linux:
+	GOOS=linux go build -o ${BUILD_DIR}/amzimg3
+
 .PHONY: build-docker
-build-docker: build
+build-docker: build-linux
 	docker build -t ${REPOSITORY} .
 
 .PHONY: run
