@@ -1,11 +1,8 @@
-FROM ubuntu:latest
+FROM alpine:latest
 
-MAINTAINER weidewang weidewang@funguide.com.cn
+MAINTAINER weidewang dewang.wei@gmail.com
 
-RUN \
-  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-  apt-get update && \
-  locale-gen en_US.UTF-8
+RUN apk add --update --no-cache ca-certificates tzdata
 
 ENV TZ 'Asia/Shanghai'
 ENV LANG en_US.UTF-8
@@ -13,7 +10,6 @@ ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 WORKDIR /tmp
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -yqq install ca-certificates
 
 RUN mkdir -p /var/log/amzimg3
 
