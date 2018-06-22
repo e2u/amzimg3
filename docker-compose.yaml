@@ -1,0 +1,13 @@
+version: '3'
+services:
+  amzimg3:
+    image: amzimg3:latest
+    restart: always
+    environment:
+      TZ: 'Asia/Shanghai'
+    ports:
+      - 8085:8085
+    volumes:
+      - ./var:/var/data
+      - ./etc:/opt/amzimg3/etc
+      
